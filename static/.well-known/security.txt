@@ -1,0 +1,21 @@
+# PassMyPass Security Policy
+# https://securitytxt.org/
+
+Contact: https://passmypass.com/contact/
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://passmypass.com/.well-known/security.txt
+Policy: https://passmypass.com/security/
+
+# Vulnerability Disclosure
+# We appreciate responsible disclosure of security vulnerabilities.
+# Please report any security issues via https://passmypass.com/contact/
+#
+# What to include in your report:
+# - Description of the vulnerability
+# - Steps to reproduce
+# - Potential impact
+# - Any suggested fixes (optional)
+#
+# We aim to respond within 48 hours and will keep you informed
+# of our progress in addressing the issue.

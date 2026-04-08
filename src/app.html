@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#0a0a0a" />
+		<meta name="referrer" content="no-referrer" />
+		<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="manifest" href="/manifest.json" />
+		<!-- No external font loading — privacy-first: no third-party requests -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebApplication",
+			"name": "PassMyPass",
+			"description": "Share passwords, API keys, and sensitive data securely with AES-256 end-to-end encryption. One-time viewing, auto-expiring links, no sign-up required.",
+			"url": "https://passmypass.com",
+			"applicationCategory": "SecurityApplication",
+			"applicationSubCategory": "Password Sharing",
+			"operatingSystem": "Any",
+			"browserRequirements": "Requires JavaScript and WebCrypto API",
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD"
+			},
+			"featureList": [
+				"AES-256-GCM end-to-end encryption",
+				"One-time secret viewing with auto-destruction",
+				"Optional password protection with PBKDF2",
+				"Ephemeral encrypted chat rooms",
+				"No account or sign-up required",
+				"Auto-expiring links (5 min to 24 hours)",
+				"Zero-knowledge architecture - server never sees plaintext",
+				"QR code generation for share links"
+			],
+			"keywords": "secret sharing, password sharing, encrypted messaging, one-time secret, end-to-end encryption, secure link, AES-256, zero-knowledge"
+		}
+		</script>
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover" class="bg-neutral-900">
+		<div style="display: contents">%sveltekit.body%</div>
+		<noscript>
+			<div style="padding: 2rem; text-align: center; color: #a3a3a3; font-family: system-ui, sans-serif;">
+				<h1 style="color: white; font-size: 1.5rem;">PassMyPass requires JavaScript</h1>
+				<p>Please enable JavaScript in your browser to use this secure secret sharing service.</p>
+				<p>All encryption happens in your browser using JavaScript — it's essential for your security.</p>
+			</div>
+		</noscript>
+	</body>
+</html>

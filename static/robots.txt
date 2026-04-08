@@ -1,0 +1,15 @@
+# PassMyPass robots.txt
+# Allow public pages, block API and private routes
+
+User-agent: *
+Allow: /
+
+# Disallow API endpoints
+Disallow: /api/
+
+# Disallow private secret and chat room URLs
+Disallow: /s/
+Disallow: /c/
+
+# Sitemap location
+Sitemap: https://passmypass.com/sitemap.xml

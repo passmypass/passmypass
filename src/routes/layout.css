@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+/* Base styles */
+html {
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #404040;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #525252;
+}
+
+/* Selection color */
+::selection {
+	background: #ef4444;
+	color: white;
+}
+
+/* Custom select styling for dropdown options - Global */
+select option {
+	background-color: #0a0a0a;
+	color: white;
+	padding: 12px 16px;
+}
+
+select option:hover,
+select option:focus,
+select option:checked {
+	background: linear-gradient(to right, #991b1b, #ef4444);
+	color: white;
+}

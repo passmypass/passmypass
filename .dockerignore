@@ -1,0 +1,13 @@
+node_modules
+.svelte-kit
+build
+.git
+.claude
+.playwright-mcp
+*.png
+*.jpg
+docs
+server/venv
+__pycache__
+*.pyc
+.env
