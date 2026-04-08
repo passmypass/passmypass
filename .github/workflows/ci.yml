@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  frontend:
+    name: Frontend (Build + Type Check + Test)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npx svelte-check
+
+      - name: Build
+        run: npm run build
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium
+
+      - name: Run tests
+        run: npm test
+
+  backend:
+    name: Backend (Lint + Type Check)
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: server
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: server/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check syntax (compile all)
+        run: python -m py_compile app/main.py && python -m py_compile app/routes.py && python -m py_compile app/chat.py && python -m py_compile app/schemas.py && python -m py_compile app/models.py && python -m py_compile app/statistics.py && python -m py_compile app/config.py && python -m py_compile app/database.py
+
+      - name: Check imports resolve
+        run: python -c "from app.main import app; print('FastAPI app loaded')"
