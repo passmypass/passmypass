@@ -5,6 +5,7 @@ Rooms live in memory only - no database, no persistence.
 Server relays ciphertext between two peers; it never sees plaintext.
 """
 import asyncio
+import json
 import logging
 import secrets
 import time
@@ -21,6 +22,7 @@ logger = logging.getLogger("passmypass")
 ROOM_EXPIRY_SECONDS = 600  # 10 minutes
 MAX_ROOMS = 1000
 CLEANUP_INTERVAL_SECONDS = 60
+MAX_MESSAGE_SIZE = 65536  # 64KB max per WebSocket message
 
 # Close codes
 CLOSE_PEER_LEFT = 4001
@@ -120,19 +122,31 @@ async def websocket_endpoint(websocket: WebSocket, room_id: str):
                 await _expire_room(room_id)
                 return
 
-            data = await websocket.receive_json()
+            raw = await websocket.receive_text()
+
+            # Enforce message size limit
+            if len(raw) > MAX_MESSAGE_SIZE:
+                continue
+
+            data = json.loads(raw)
 
             # Validate message format
             msg_type = data.get("type")
             if msg_type not in ("message", "typing"):
                 continue
 
+            # Strip to allowed fields only before relaying
+            if msg_type == "message":
+                sanitized = {"type": "message", "data": data.get("data"), "nonce": data.get("nonce")}
+            else:
+                sanitized = {"type": "typing"}
+
             # Relay to other clients
             relayed = False
             for client in room.clients:
                 if client != websocket and client.client_state == WebSocketState.CONNECTED:
                     try:
-                        await client.send_json(data)
+                        await client.send_json(sanitized)
                         relayed = True
                     except Exception:
                         pass
