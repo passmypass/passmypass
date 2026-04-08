@@ -55,7 +55,7 @@ Only `DATABASE_URL` is required for the backend. All others have defaults:
 | Variable | Default | Description |
 |----------|---------|-------------|
 | DATABASE_URL | - | PostgreSQL connection string (required) |
-| MAX_TTL_SECONDS | 3600 | Max secret lifetime |
+| MAX_TTL_SECONDS | 86400 | Max secret lifetime (24 hours) |
 | RATE_LIMIT_CREATE | 30/minute | Create endpoint limit |
 | RATE_LIMIT_CLAIM | 60/minute | Claim endpoint limit |
 
