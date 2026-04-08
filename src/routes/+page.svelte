@@ -237,31 +237,35 @@
 			class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-red-950/20 via-transparent to-transparent"
 		></div>
 
-		<div class="container mx-auto max-w-5xl px-4 pb-8 pt-12 sm:pb-16 sm:pt-20">
+		<div class="container mx-auto max-w-5xl px-4 pb-4 pt-6 sm:pb-16 sm:pt-20">
 			<div class="mx-auto max-w-3xl text-center">
 				<div
-					class="mb-4 inline-flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-900/80 px-4 py-1.5 text-xs font-medium text-neutral-300"
+					class="mb-3 hidden items-center gap-2 rounded-full border border-neutral-800 bg-neutral-900/80 px-4 py-1.5 text-xs font-medium text-neutral-300 sm:inline-flex"
 				>
 					<ShieldCheck class="h-3.5 w-3.5 text-red-500" />
 					Zero-knowledge end-to-end encryption
 				</div>
 
 				<h1
-					class="mb-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl"
+					class="mb-2 text-3xl font-extrabold leading-tight tracking-tight sm:mb-4 sm:text-5xl md:text-6xl"
 				>
-					Share Secrets.<br />
+					Share Secrets.
 					<span class="bg-gradient-to-r from-red-500 to-red-400 bg-clip-text text-transparent"
 						>Not Risk.</span
 					>
 				</h1>
 
-				<p class="mx-auto mb-8 max-w-xl text-base leading-relaxed text-neutral-400 sm:text-lg">
+				<p
+					class="mx-auto mb-4 max-w-xl text-sm leading-relaxed text-neutral-400 sm:mb-8 sm:text-lg"
+				>
 					Send passwords, API keys, and sensitive data through self-destructing encrypted links.
 					The server never sees your data.
 				</p>
 
-				<!-- Trust badges -->
-				<div class="flex flex-wrap items-center justify-center gap-3 text-xs text-neutral-500">
+				<!-- Trust badges — hidden on mobile -->
+				<div
+					class="hidden flex-wrap items-center justify-center gap-3 text-xs text-neutral-500 sm:flex"
+				>
 					<span class="flex items-center gap-1.5 rounded-full bg-neutral-900 px-3 py-1.5">
 						<Shield class="h-3.5 w-3.5 text-red-500" />
 						AES-256-GCM

@@ -137,7 +137,7 @@ print(link)`;
 	<title>Developer API Documentation - PassMyPass</title>
 	<meta
 		name="description"
-		content="PassMyPass REST API documentation. Integrate zero-knowledge secret sharing into your apps, scripts, and CI/CD pipelines. Free, no API key required."
+		content="PassMyPass REST API documentation. Explore endpoints, code examples, and learn how the zero-knowledge encryption works under the hood. Free, no API key required."
 	/>
 	<link rel="canonical" href="https://passmypass.com/developers/" />
 
@@ -177,8 +177,8 @@ print(link)`;
 					Developer API
 				</h1>
 				<p class="mx-auto max-w-xl text-base leading-relaxed text-neutral-400 sm:text-lg">
-					Integrate zero-knowledge secret sharing into your applications, scripts, and CI/CD
-					pipelines. Free, no API key required.
+					Explore the PassMyPass REST API. Use it to build your own integrations, or understand
+					how the service works under the hood. No API key required.
 				</p>
 				<div class="mt-6 flex flex-wrap justify-center gap-3">
 					<a
@@ -525,26 +525,37 @@ print(link)`;
 				</div>
 			</div>
 
-			<!-- Important Notes -->
+			<!-- How It Works -->
 			<div>
-				<h2 class="mb-4 text-xl font-bold text-white sm:text-2xl">Important Notes</h2>
+				<h2 class="mb-4 text-xl font-bold text-white sm:text-2xl">How It Works</h2>
 				<div class="space-y-3 text-sm text-neutral-400">
-					<div class="rounded-xl border border-amber-500/20 bg-amber-500/5 p-4">
-						<p class="font-medium text-amber-300">Encryption must happen client-side</p>
-						<p class="mt-1 text-amber-400/80">
-							The API only accepts pre-encrypted ciphertext. If you encrypt server-side, you lose
-							the zero-knowledge guarantee — your server will see the plaintext. For true E2E
-							encryption, perform all crypto in the browser using the WebCrypto API.
+					<div class="rounded-xl border border-neutral-800/50 bg-neutral-900/40 p-4">
+						<p class="font-medium text-neutral-200">The API stores encrypted data only</p>
+						<p class="mt-1 text-neutral-500">
+							The API accepts pre-encrypted ciphertext and cryptographic parameters. The encryption
+							key lives in the URL fragment (<code class="text-red-400">#</code>) which is never
+							sent to the server. This means the server stores data it cannot decrypt.
 						</p>
 					</div>
 					<div class="rounded-xl border border-neutral-800/50 bg-neutral-900/40 p-4">
-						<p class="font-medium text-neutral-200">
-							The URL fragment (#) is never sent to the server
-						</p>
+						<p class="font-medium text-neutral-200">SDK coming soon</p>
 						<p class="mt-1 text-neutral-500">
-							The encryption key and claim token live in the URL fragment. Per RFC 3986, browsers
-							never transmit the fragment to the server. This is the foundation of the
-							zero-knowledge design.
+							We're building official npm and Python packages that handle the encryption
+							automatically, so you can share secrets from scripts and CI/CD pipelines with a single
+							function call. In the meantime, the code examples above show the full encryption flow.
+						</p>
+					</div>
+					<div class="rounded-xl border border-neutral-800/50 bg-neutral-900/40 p-4">
+						<p class="font-medium text-neutral-200">Self-hosting</p>
+						<p class="mt-1 text-neutral-500">
+							PassMyPass is open source (AGPL-3.0). You can run your own instance with
+							<code class="text-red-400">docker compose up -d</code>. See the
+							<a
+								href="https://github.com/passmypass/passmypass"
+								class="text-red-400 hover:text-red-300"
+								target="_blank"
+								rel="noopener noreferrer">GitHub repo</a
+							> for setup instructions.
 						</p>
 					</div>
 				</div>
