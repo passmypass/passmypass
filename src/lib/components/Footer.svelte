@@ -77,9 +77,18 @@
 		</div>
 
 		<div
-			class="mt-8 border-t border-neutral-800/30 pt-6 text-center text-[11px] text-neutral-600"
+			class="mt-8 flex items-center justify-center gap-3 border-t border-neutral-800/30 pt-6 text-[11px] text-neutral-600"
 		>
 			<p>&copy; {new Date().getFullYear()} PassMyPass. All rights reserved.</p>
+			<a
+				href="https://github.com/passmypass/passmypass"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-neutral-600 transition hover:text-white"
+				aria-label="GitHub"
+			>
+				<img src="/github-mark-white.svg" alt="GitHub" class="h-4 w-4 opacity-40 transition hover:opacity-100" />
+			</a>
 		</div>
 	</div>
 </footer>

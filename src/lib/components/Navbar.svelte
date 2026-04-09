@@ -70,8 +70,17 @@
 				</a>
 			{/each}
 			<a
+				href="https://github.com/passmypass/passmypass"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="rounded-lg p-2 text-neutral-400 transition hover:text-white"
+				aria-label="GitHub"
+			>
+				<img src="/github-mark-white.svg" alt="GitHub" class="h-5 w-5 opacity-60 transition hover:opacity-100" />
+			</a>
+			<a
 				href="/"
-				class="ml-2 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-red-500/20 transition-all hover:bg-red-500 hover:shadow-md hover:shadow-red-500/25 active:scale-[0.97]"
+				class="ml-1 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-red-500/20 transition-all hover:bg-red-500 hover:shadow-md hover:shadow-red-500/25 active:scale-[0.97]"
 			>
 				Share a Secret
 			</a>
@@ -110,6 +119,17 @@
 						<ChevronRight class="ml-auto h-4 w-4 opacity-40" />
 					</a>
 				{/each}
+				<a
+					href="https://github.com/passmypass/passmypass"
+					target="_blank"
+					rel="noopener noreferrer"
+					onclick={() => (mobileOpen = false)}
+					class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-neutral-400 transition-colors hover:bg-neutral-800/50 hover:text-white"
+				>
+					<img src="/github-mark-white.svg" alt="" class="h-4 w-4 opacity-60" />
+					GitHub
+					<ChevronRight class="ml-auto h-4 w-4 opacity-40" />
+				</a>
 				<a
 					href="/"
 					onclick={() => (mobileOpen = false)}
